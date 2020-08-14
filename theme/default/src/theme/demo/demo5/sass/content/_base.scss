@@ -1,0 +1,16 @@
+//
+// Content
+//
+
+
+
+.kt-content {
+	padding: kt-get($kt-page-padding, desktop);
+	padding-top: $grid-gutter-width;
+}
+
+@include kt-tablet-and-mobile {
+	.kt-content {
+		padding: kt-get($kt-page-padding, mobile);
+	}
+}

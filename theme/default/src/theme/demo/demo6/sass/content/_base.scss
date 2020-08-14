@@ -1,0 +1,18 @@
+//
+// Content
+//
+
+
+
+
+@include kt-tablet-and-mobile {
+	// Content
+	.kt-content {
+		padding: 0 kt-get($kt-page-padding, mobile) kt-get($kt-page-padding, mobile) kt-get($kt-page-padding, mobile);
+
+		// Subheader enabled
+		.kt-subheader--enabled.kt-subheader--transparent & {
+			padding-top: 0;
+		}
+	}
+}

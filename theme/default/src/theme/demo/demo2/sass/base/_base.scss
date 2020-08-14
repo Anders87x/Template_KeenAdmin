@@ -1,0 +1,54 @@
+//
+// Page
+//
+
+
+
+
+body {
+	background: $kt-page-body-bg-color;
+}
+
+@include kt-desktop {
+	// Wrapper	
+	.kt-wrapper {
+		transition: kt-get($kt-aside-config, base, minimize, transition);
+		
+		// Fixed Aside
+		.kt-aside--fixed & {
+			padding-left: kt-get($kt-aside-config, base, default, width);
+		}
+
+		// Minimize Aside
+		.kt-aside--fixed.kt-aside--minimize & {
+			padding-left: kt-get($kt-aside-config, base, minimize, width);
+			transition: kt-get($kt-aside-config, base, minimize, transition);
+		}
+	}
+
+	// Page
+	.kt-page {
+		padding: kt-get($kt-page-margin, desktop) !important;
+
+		// Fixed Header
+		.kt-header--fixed & {
+			padding-top: kt-get($kt-header-config, base, dekstop, default, height);
+		}
+	}
+
+	// Subheader enabled
+	.kt-subheader {
+		display: none;
+	}
+}
+
+@include kt-tablet-and-mobile {
+	// Page
+	.kt-page {
+		// Fixed Header
+		.kt-header-mobile--fixed & {
+			padding-top: kt-get($kt-header-config, base, mobile, self, default, height);
+		}
+	}
+}
+

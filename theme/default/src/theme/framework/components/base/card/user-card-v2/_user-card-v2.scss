@@ -1,0 +1,57 @@
+//
+// User Card v2
+//
+
+
+
+.kt-user-card-v2 {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+       
+    .kt-user-card-v2__pic {
+        .kt-badge {
+            width: 40px;
+            height: 40px;
+        }
+
+        img {
+            border-radius: 50%;
+            max-width: 40px;
+            max-height: 40px;
+        }
+
+        padding-right: 0.5rem;
+    }
+
+    .kt-user-card-v2__details {
+        line-height: 0;
+
+        .kt-user-card-v2__name {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+            color: kt-base-color(label, 3);
+        }                
+
+        .kt-user-card-v2__email {
+            display: inline-block;
+            font-size: 0.8rem;
+            line-height: 1rem;
+            font-weight: 400;
+            color: kt-base-color(label, 2);
+        }
+    }
+}
+
+@include kt-tablet-and-mobile {
+    .kt-user-card-v2 {
+        .kt-user-card-v2__pic {
+            img {
+                max-width: 30px;
+            }
+        }
+    }
+}

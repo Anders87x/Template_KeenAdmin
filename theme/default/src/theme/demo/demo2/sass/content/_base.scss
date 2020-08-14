@@ -1,0 +1,31 @@
+//
+// Content
+//
+
+
+
+
+@include kt-desktop {
+	// Content
+	.kt-content {
+		padding-left: kt-get($kt-page-padding, desktop);
+		padding-top: 10px;
+		
+		// Footer fixed
+		.kt-footer--fixed & {
+			padding-bottom: kt-get($kt-footer-config, self, fixed, height);
+		} 
+	}
+}
+
+@include kt-tablet-and-mobile {
+	// Content
+	.kt-content {
+		padding: 0 kt-get($kt-page-padding, mobile) kt-get($kt-page-padding, mobile) kt-get($kt-page-padding, mobile);
+
+		// Subheader enabled
+		.kt-subheader--enabled.kt-subheader--transparent & {
+			padding-top: 0;
+		}
+	}
+}

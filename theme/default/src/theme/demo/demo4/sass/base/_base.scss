@@ -1,0 +1,147 @@
+//
+// Page
+//
+
+
+
+
+// Page fixed mode(above $kt-page-container-width)
+@include kt-page-fixed-mode {
+	// Body
+	body {
+		background: $kt-page-body-bg-color;
+	}
+
+	// Container
+	.kt-container {
+		width: $kt-page-container-width !important;
+	}
+
+	// Fluid page
+	.kt-page--fluid {
+		.kt-container {
+			width: auto !important;
+			margin: 0 $kt-page-fluid-container-padding;
+    		flex-grow: 1;
+			padding: 0;
+		} 
+	}
+
+	// Body
+	.kt-body {
+		background: $kt-page-content-bg-color;
+		box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.02);
+	}
+
+	// Main sticky portlet
+	.kt-portlet--sticky {
+		.kt-portlet.kt-portlet--sticky {
+			.kt-portlet__head {
+				width: $kt-page-container-width - (2 * kt-get($kt-page-padding, desktop));
+			}
+		}
+		
+		&.kt-aside--enabled {
+			.kt-portlet.kt-portlet--sticky {
+				.kt-portlet__head {
+					width: $kt-page-container-width - (2 * kt-get($kt-page-padding, desktop)) - $kt-aside-default-width;
+				}
+			}
+		}
+	
+		&.kt-page--fluid {
+			.kt-portlet.kt-portlet--sticky {
+				.kt-portlet__head {
+					width: auto !important;
+					left: kt-get($kt-page-padding, desktop) + $kt-page-fluid-container-padding;
+					right: kt-get($kt-page-padding, desktop) + $kt-page-fluid-container-padding;
+				}
+			}
+	
+			&.kt-aside--enabled {
+				.kt-portlet.kt-portlet--sticky {
+					.kt-portlet__head {
+						left: kt-get($kt-page-padding, desktop) + $kt-page-fluid-container-padding + $kt-aside-default-width;
+					}
+				}
+			}
+		}	
+	}
+}
+
+// Page fluid mode(below $kt-page-container-width)
+@include kt-page-fluid-mode {
+	// Body
+	body {
+		background: $kt-page-content-bg-color;
+	}
+
+	// Container
+	.kt-container {
+		flex-grow: 1;
+		width: 100% !important;
+		padding: 0 kt-get($kt-page-padding, desktop);
+	}
+
+	// Subheader
+	.kt-subheader {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	// Main sticky portlet
+	.kt-portlet--sticky {
+		.kt-portlet.kt-portlet--sticky {
+			.kt-portlet__head {
+				width: auto !important;
+				left: kt-get($kt-page-padding, desktop);
+				right: kt-get($kt-page-padding, desktop);
+			}
+		}
+	
+		&.kt-aside--enabled {
+			.kt-portlet.kt-portlet--sticky {
+				.kt-portlet__head {
+					left: 2 * kt-get($kt-page-padding, desktop) + $kt-aside-default-width;
+				}
+			}
+		}
+	}
+}
+
+// Desktop mode(1024px and above)
+@include kt-desktop {
+	// Header Minimize mode
+	.kt-page {
+		.kt-header--fixed.kt-header--minimize & {
+			padding-top: kt-get($kt-header-config, base, desktop, default, height, top) + kt-get($kt-header-config, base, desktop, default, height, bottom);
+		}
+	}	
+}
+
+// Tablet & mobile mode(1024px and below)
+@include kt-tablet-and-mobile {
+	// Container
+	.kt-container {
+		padding: 0 kt-get($kt-page-padding, mobile);
+	}
+
+	// Page
+	.kt-page {
+		// Fixed Header
+		.kt-header-mobile--fixed & {
+			padding-top: kt-get($kt-header-config, base, mobile, self, default, height);
+		}
+	}
+	
+	// Main sticky portlet
+	.kt-aside--enabled.kt-portlet--sticky,
+	.kt-portlet--sticky {
+		.kt-portlet.kt-portlet--sticky {
+			.kt-portlet__head {
+				left: kt-get($kt-page-padding, mobile);
+				right: kt-get($kt-page-padding, mobile);
+			}
+		}
+	}
+}

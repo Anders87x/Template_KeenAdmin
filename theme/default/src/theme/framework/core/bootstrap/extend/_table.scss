@@ -1,0 +1,35 @@
+//
+// Table
+//
+
+
+
+.table {
+	thead {
+		th, td {
+			font-weight: 500;
+		}
+	}
+
+	tr.table-active {
+		td, th {
+			color: kt-state-color(primary, inverse);
+		}
+	}
+
+	&.table-head-noborder {
+		thead {
+			th, td {
+				border-top: 0;
+			}
+		}
+	}
+}
+
+.table:not(.table-bordered) {
+	thead {
+		th, td {
+			border-top: 0;
+		}
+	}
+}

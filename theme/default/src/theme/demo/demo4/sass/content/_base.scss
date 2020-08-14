@@ -1,0 +1,47 @@
+//
+// Content
+//
+
+
+
+
+
+// General mode
+.kt-content {
+	padding: kt-get($kt-page-padding, desktop);
+
+	// Subheader enabled
+	.kt-subheader--enabled.kt-subheader--transparent:not(.kt-subheader--fixed) & {
+		padding-top: 0;
+	}
+
+	// Page fluid mode(below $kt-page-container-width)
+	@include kt-page-fluid-mode {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+@include kt-page-fluid-mode {
+	.kt-content {
+		padding-left: 0;
+		padding-right: 0;
+
+		.kt-aside--enabled & {
+			padding-left: kt-get($kt-page-padding, desktop);
+		}
+	}
+}
+
+// Tablet & mobile mode(1024px and below)
+@include kt-tablet-and-mobile() {
+	.kt-aside--enabled .kt-content,
+	.kt-content {
+		padding: kt-get($kt-page-padding, mobile) 0;
+
+		// Subheader enabled
+		.kt-subheader--enabled.kt-subheader--transparent & {
+			padding-top: 0;
+		}
+	}
+}

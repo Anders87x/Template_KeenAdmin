@@ -1,0 +1,48 @@
+//
+// Page
+//
+
+
+
+
+body {
+	background: $kt-page-body-bg-color;
+}
+
+@media ( min-width: #{$kt-page-content-width + 60px} ) {
+	// Body fixed width mode
+	.kt-body.kt-body--fixed {
+		width: $kt-page-content-width !important;
+		flex-grow: 0 !important;
+		margin: 0 auto;
+	}
+
+	// Main sticky portlet
+	.kt-portlet--sticky {
+		.kt-portlet.kt-portlet--sticky {
+			.kt-portlet__head {
+				width: $kt-page-content-width - (2 * kt-get($kt-page-padding, desktop));
+			}
+		}
+	}
+}
+
+@include kt-desktop {
+	.kt-page {
+		transition: kt-get($kt-aside-config, base, minimize, transition);
+		
+		// Fixed Header
+		.kt-header--fixed & {
+			padding-top: kt-get($kt-header-config, base, desktop, default, height);
+		}
+	}
+}
+
+@include kt-tablet-and-mobile {
+	.kt-page {
+		// Fixed Header
+		.kt-header-mobile--fixed & {
+			padding-top: kt-get($kt-header-config, base, mobile, self, default, height);
+		}
+	}
+}
